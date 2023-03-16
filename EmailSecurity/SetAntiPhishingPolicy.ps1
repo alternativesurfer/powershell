@@ -95,3 +95,4 @@ else
         Write-Host "Exiting Script - No Policies have been created" -ForegroundColor Red
         }
     }
+Remove-PSSession *
