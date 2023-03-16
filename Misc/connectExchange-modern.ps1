@@ -1,0 +1,1 @@
+﻿Connect-ExchangeOnline -ShowProgress $true

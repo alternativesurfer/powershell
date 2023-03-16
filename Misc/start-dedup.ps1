@@ -1,0 +1,1 @@
+start-dedupjob -Volume X:\ -Type optimization -memory 50
