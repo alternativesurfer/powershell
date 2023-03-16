@@ -63,3 +63,4 @@ While ($Answer -eq '')
             }
     }
 }
+Remove-PSSession *
