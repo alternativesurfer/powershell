@@ -17,3 +17,4 @@ foreach ($MailboxUser in $MailboxUsers)
 }
 
 Disconnect-ExchangeOnline -Confirm:$false
+Remove-PSSession *
