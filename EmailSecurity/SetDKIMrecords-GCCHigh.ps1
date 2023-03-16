@@ -50,6 +50,6 @@ if($GetCNAME.Enabled -eq $True){
     Write-Host "The Selector 1 Key Size is" $GetCNAME.Selector1KeySize
     Write-Host "The Selector 2 Key Size is" $GetCNAME.Selector2KeySize
     }
-    Remove-PSSession *
+Remove-PSSession *
 
 
