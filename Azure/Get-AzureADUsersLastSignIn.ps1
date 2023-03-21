@@ -198,3 +198,5 @@ Write-host $filerep "report has been created under the path:" $loc -ForegroundCo
 ''
 Write-Host "Script completed successfully." -ForegroundColor Green -BackgroundColor Black
 ''
+
+Remove-PSSession *
