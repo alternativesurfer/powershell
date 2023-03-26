@@ -3,7 +3,7 @@ $AdminCenterURL = Read-Host "Please enter the Admin URL of your sharepoint insta
 $CSVPath = "C:\Temp\GroupsReport.csv"
  
 #Connect to SharePoint Online
-Connect-SPOService -url $AdminCenterURL -Credential (Get-Credential)
+Connect-SPOService -url $AdminCenterURL
  
 $GroupsData = @()
  
