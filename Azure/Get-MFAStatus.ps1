@@ -1,3 +1,5 @@
+## Get-MFAStatus.ps1 | Export-CSV c:\temp\mfastatus.csv -noTypeInformation
+
 <#
 .Synopsis
   Get the MFA status for all users or a single user.
