@@ -1,3 +1,5 @@
+Connect-MsolService
+
 Write-Host "Finding Azure Active Directory Accounts..."
 $Users = Get-MsolUser -All | Where-Object { $_.UserType -ne "Guest" }
 $Report = [System.Collections.Generic.List[Object]]::new() # Create output file
