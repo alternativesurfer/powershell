@@ -1,3 +1,6 @@
+##### Allow Unsigned
+Set-ExecutionPolicy unrestricted
+
 ##### Install
 Install-Module -Name ExchangeOnlineManagement
 Install-Module –Name MSOnline
