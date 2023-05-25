@@ -19,6 +19,6 @@ Import-Module -Name AzureAD
 Import-Module -Name Microsoft.Online.SharePoint.PowerShell
 Import-Module -Name SharePointPnPPowerShellOnline
 Import-Module -Name MicrosoftTeams
-Import-Module -Name PartnerCenter -AllowClobber -Scope AllUsers
+Import-Module -Name PartnerCenter
 Import-Module -Name Microsoft.Graph.Intune
 Import-Module -Name IntuneBackupAndRestore
