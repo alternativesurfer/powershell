@@ -12,6 +12,7 @@ Install-Module -Name PartnerCenter -AllowClobber -Scope AllUsers
 Install-Module -Name Microsoft.Graph.Intune
 Install-Module -Name IntuneBackupAndRestore
 install-module RunAsUser
+Install-Module Microsoft.Graph
 
 ##### Import
 Import-Module -Name ExchangeOnlineManagement
@@ -24,3 +25,4 @@ Import-Module -Name PartnerCenter
 Import-Module -Name Microsoft.Graph.Intune
 Import-Module -Name IntuneBackupAndRestore
 Import-Module -Name RunAsUser
+import-module -Name Microsoft.Graph
