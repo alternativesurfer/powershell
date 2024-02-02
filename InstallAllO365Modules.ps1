@@ -2,18 +2,19 @@
 Set-ExecutionPolicy unrestricted
 
 ##### Install
-Install-Module -Name ExchangeOnlineManagement
-Install-Module -Name MSOnline
-Install-Module -Name AzureAD
-Install-Module -Name Microsoft.Online.SharePoint.PowerShell
-Install-Module -Name SharePointPnPPowerShellOnline
-Install-Module -Name MicrosoftTeams
-Install-Module -Name PartnerCenter -AllowClobber -Scope AllUsers
-Install-Module -Name Microsoft.Graph.Intune
-Install-Module -Name IntuneBackupAndRestore
-install-module RunAsUser
-Install-Module Microsoft.Graph
-Install-Module -Name MSCommerce
+Install-Module -Name ExchangeOnlineManagement -Scope AllUsers -Force
+Install-Module -Name MSOnline -Scope AllUsers -Force
+Install-Module -Name AzureAD -Scope AllUsers -Force
+Install-Module -Name Microsoft.Online.SharePoint.PowerShell -Scope AllUsers -Force
+Install-Module -Name SharePointPnPPowerShellOnline -Scope AllUsers -Force
+Install-Module -Name MicrosoftTeams -Scope AllUsers -Force
+Install-Module -Name PartnerCenter -AllowClobber -Scope AllUsers -Force
+Install-Module -Name Microsoft.Graph.Intune -Scope AllUsers -Force
+Install-Module -Name IntuneBackupAndRestore -Scope AllUsers -Force
+install-module RunAsUser -Scope AllUsers -Force
+Install-Module Microsoft.Graph -Scope AllUsers -Force
+Install-Module Microsoft.Graph.Beta -Scope AllUsers -Force
+Install-Module -Name MSCommerce -Scope AllUsers -Force
 
 ##### Import
 Import-Module -Name ExchangeOnlineManagement
