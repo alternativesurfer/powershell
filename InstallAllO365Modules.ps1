@@ -15,6 +15,7 @@ install-module RunAsUser -Scope AllUsers -Force
 Install-Module Microsoft.Graph -Scope AllUsers -Force
 Install-Module Microsoft.Graph.Beta -Scope AllUsers -Force
 Install-Module -Name MSCommerce -Scope AllUsers -Force
+Install-Module -Name AIPService -Scope AllUsers -Force
 
 ##### Import
 Import-Module -Name ExchangeOnlineManagement
@@ -29,3 +30,4 @@ Import-Module -Name IntuneBackupAndRestore
 Import-Module -Name RunAsUser
 import-module -Name Microsoft.Graph
 Import-Module -Name MSCommerce
+Import-Module -Name AIPService
