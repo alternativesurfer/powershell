@@ -4,15 +4,6 @@ Sync Intune Policies on All Intune-Managed Devices at once
  
 .DESCRIPTION 
 Below script will force Initiate Intune Sync on All Intune Managed devices
-.NOTES     
-        Name       : Sync-IntunePolicies.ps1
-        Author     : Jatin Makhija  
-        Version    : 1.0.0  
-        DateCreated: 23-Nov-2023
-        Blog       : https://cloudinfra.net
-         
-.LINK 
-https://cloudinfra.net 
 #>
 try {
     # Install required modules
