@@ -42,7 +42,7 @@ $Confirm = Read-Host -Prompt 'Are there are any hold GUIDs listed? (y/n)'
 } while ($Confirm -ne 'y')
 Connect-IPPSSession
 
-$HoldGUID = Read-Host "Please enter a GUID for lookup (excluding the prefix)"
+$HoldGUID = Read-Host "Please enter a GUID for lookup (excluding the suffix)"
 $CaseHold = Get-CaseHoldPolicy $HoldGUID
 Get-ComplianceCase $CaseHold.CaseId | FL Name
 $CaseHold | FL Name,ExchangeLocation
