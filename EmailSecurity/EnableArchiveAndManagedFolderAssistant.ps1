@@ -16,5 +16,14 @@ foreach ($MailboxUser in $MailboxUsers)
   Enable-Mailbox -Identity $MailboxUser.Identity -Archive
 }
 
+# Get a list of all mailbox users in the organization
+$MailboxUsers = Get-Mailbox -ResultSize Unlimited
+
+# Run ManagedFolderAssistant for each mailbox user
+foreach ($MailboxUser in $MailboxUsers)
+{
+  Start-ManagedFolderAssistant -Identity "$MailboxUser"
+}
+
 Disconnect-ExchangeOnline -Confirm:$false
 Remove-PSSession *
