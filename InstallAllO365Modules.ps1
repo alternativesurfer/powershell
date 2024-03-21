@@ -17,6 +17,8 @@ Install-Module Microsoft.Graph.Beta -Scope AllUsers -Force -AllowClobber
 Install-Module -Name MSCommerce -Scope AllUsers -Force -AllowClobber
 Install-Module -Name AIPService -Scope AllUsers -Force -AllowClobber
 Install-Module -Name RobustCloudCommand -RequiredVersion 2.0.1
+Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -force -allowclobber
+Install-Module -Name Microsoft.PowerApps.PowerShell -force -AllowClobber
 
 ##### Import
 Import-Module -Name ExchangeOnlineManagement
