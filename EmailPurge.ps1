@@ -44,7 +44,7 @@ Write-Output "Starting Search"
 
 do{
 Get-ComplianceSearch
-$Confirm2 = Read-Host -Prompt 'Check status of search (you may have to scroll down).....Has it completed? (y/n)'
+$Confirm2 = Read-Host -Prompt 'Check status of search (you may have to scroll down).....Has it completed? (y/n)  n also refreshes'
 } while ($Confirm2 -ne 'y')
 
 Write-Output "Beginning purge of emails"
@@ -53,7 +53,7 @@ Write-Output "Beginning purge of emails"
 New-ComplianceSearchAction -SearchName "$IncidentTicket" -Purge -PurgeType HardDelete
 do{
 Get-ComplianceSearchAction
-$Confirm2 = Read-Host -Prompt 'Check status of purge.....Has it completed? Please wait a few minutes before each response (y/n)'
+$Confirm2 = Read-Host -Prompt 'Check status of purge.....Has it completed? Please wait a few minutes before each response (y/n)  n also refreshes'
 } while ($Confirm2 -ne 'y')
 
 Write-Output "Process complete. Disconnecting session."
