@@ -8,7 +8,7 @@ Install-Module -Name AzureAD -Scope AllUsers -Force -AllowClobber
 Install-Module -Name Microsoft.Online.SharePoint.PowerShell -Scope AllUsers -Force -AllowClobber
 Install-Module -Name SharePointPnPPowerShellOnline -Scope AllUsers -Force -AllowClobber
 Install-Module -Name MicrosoftTeams -Scope AllUsers -Force -AllowClobber
-Install-Module -Name PartnerCenter -AllowClobber -Scope AllUsers -Force -AllowClobber
+Install-Module -Name PartnerCenter -AllowClobber -Scope AllUsers -Force
 Install-Module -Name Microsoft.Graph.Intune -Scope AllUsers -Force -AllowClobber
 Install-Module -Name IntuneBackupAndRestore -Scope AllUsers -Force -AllowClobber
 install-module RunAsUser -Scope AllUsers -Force -AllowClobber
