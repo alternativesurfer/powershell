@@ -20,6 +20,8 @@ Install-Module -Name RobustCloudCommand -RequiredVersion 2.0.1
 Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -force -allowclobber
 Install-Module -Name Microsoft.PowerApps.PowerShell -force -AllowClobber
 Install-Module -Name Microsoft.Graph.Entra -Repository PSGallery -Scope CurrentUser -AllowPrerelease -Force -allowclobber
+Install-Module PnP.PowerShell -Scope CurrentUser -force -allowclobber
+
 
 ##### Import
 Import-Module -Name ExchangeOnlineManagement
@@ -40,3 +42,5 @@ Import-Module -Name RobustCloudCommand
 Import-Module -Name Microsoft.PowerApps.Administration.PowerShell
 Import-Module -Name Microsoft.PowerApps.PowerShell
 Import-Module -name Microsoft.Graph.Entra
+import-module -name pnp.powershell
+
