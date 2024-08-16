@@ -19,6 +19,7 @@ Install-Module -Name AIPService -Scope AllUsers -Force -AllowClobber
 Install-Module -Name RobustCloudCommand -RequiredVersion 2.0.1
 Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -force -allowclobber
 Install-Module -Name Microsoft.PowerApps.PowerShell -force -AllowClobber
+Install-Module -Name Microsoft.Graph.Entra -Repository PSGallery -Scope CurrentUser -AllowPrerelease -Force -allowclobber
 
 ##### Import
 Import-Module -Name ExchangeOnlineManagement
@@ -32,6 +33,10 @@ Import-Module -Name Microsoft.Graph.Intune
 Import-Module -Name IntuneBackupAndRestore
 Import-Module -Name RunAsUser
 import-module -Name Microsoft.Graph
+import-module -name Microsoft.Graph.Beta
 Import-Module -Name MSCommerce
 Import-Module -Name AIPService
 Import-Module -Name RobustCloudCommand
+Import-Module -Name Microsoft.PowerApps.Administration.PowerShell
+Import-Module -Name Microsoft.PowerApps.PowerShell
+Import-Module -name Microsoft.Graph.Entra
