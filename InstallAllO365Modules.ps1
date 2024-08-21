@@ -11,8 +11,12 @@ Install-Module -Name PartnerCenter -AllowClobber -Scope AllUsers -Force
 Install-Module -Name Microsoft.Graph.Intune -Scope AllUsers -Force -AllowClobber
 Install-Module -Name IntuneBackupAndRestore -Scope AllUsers -Force -AllowClobber
 install-module RunAsUser -Scope AllUsers -Force -AllowClobber
-Install-Module Microsoft.Graph -Scope AllUsers -Force -AllowClobber
+
+### Graph and Graph BETA must both be installed, in this order
+Install-Module Microsoft.Graph -Scope AllUsers -Force
 Install-Module Microsoft.Graph.Beta -Scope AllUsers -Force -AllowClobber
+
+
 Install-Module -Name MSCommerce -Scope AllUsers -Force -AllowClobber
 Install-Module -Name AIPService -Scope AllUsers -Force -AllowClobber
 Install-Module -Name RobustCloudCommand -RequiredVersion 2.0.1
