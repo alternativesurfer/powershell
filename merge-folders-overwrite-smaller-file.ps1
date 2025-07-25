@@ -1,5 +1,5 @@
-$folder2 = "D:\Google Photos\Takeout\Dupes"
-$folder1 = "D:\Google Photos\Takeout\Google Photos"
+$folder1 = "D:\Google Photos\dupes\Takeout"
+$folder2 = "D:\Google Photos\Takeout"
 $logFile = Join-Path $folder2 "!merge_log.txt"
 
 # Clear previous log file if it exists
