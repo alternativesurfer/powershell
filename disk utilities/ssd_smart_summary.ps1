@@ -2,6 +2,11 @@
 # Summarizes SMART for SATA + NVMe using smartctl; maps to Storage Spaces PhysicalDisk when possible.
 # Outputs a table and saves CSV to Desktop as ssd_smart_summary.csv
 
+
+#---------------- run timestamp ----------------
+# One timestamp per execution, ISO 8601 with offset (e.g., 2025-08-14T07:22:33.1234567-07:00)
+$RunAt = (Get-Date).ToString('o')
+
 #---------------- helpers ----------------
 function Get-Value { param([string]$Text,[string]$Pattern,[int]$Group=1)
   $m = [regex]::Match($Text,$Pattern,'IgnoreCase,Multiline')
@@ -13,6 +18,27 @@ function Get-FirstNumber { param([string]$Line)
 }
 
 #---------------- locate smartctl ----------------
+# --- ensure smartmontools is installed (winget -> choco fallback) ---
+$smartPath = 'C:\Program Files\smartmontools\bin\smartctl.exe'
+if (-not (Test-Path $smartPath)) {
+  $installed = $false
+
+  if (Get-Command winget -ErrorAction SilentlyContinue) {
+    Write-Host "Installing smartmontools via winget..."
+    $wgArgs = 'install --id=smartmontools.smartmontools -e --accept-package-agreements --accept-source-agreements --scope machine'
+    Start-Process -FilePath 'winget' -ArgumentList $wgArgs -Wait -WindowStyle Hidden | Out-Null
+    if (Test-Path $smartPath) { $installed = $true }
+  }
+
+  if (-not $installed -and (Get-Command choco -ErrorAction SilentlyContinue)) {
+    Write-Host "Installing smartmontools via Chocolatey..."
+    Start-Process -FilePath 'choco' -ArgumentList 'install smartmontools -y' -Wait -NoNewWindow | Out-Null
+    if (Test-Path $smartPath) { $installed = $true }
+  }
+
+  if (-not $installed) { throw "smartctl not found and auto-install failed. Please install smartmontools and re-run." }
+}
+
 $smart = (Get-Command smartctl -ErrorAction SilentlyContinue).Source
 if(-not $smart){ $smart = 'C:\Program Files\smartmontools\bin\smartctl.exe' }
 if(-not (Test-Path $smart)){ throw "smartctl not found. Install smartmontools or add it to PATH." }
@@ -131,9 +157,38 @@ foreach($dev in $devs){
   }
 }
 
+  #---------------- Generate CSV Output ----------------
 $rows = $rows | Sort-Object PD_FriendlyName, Model
-$rows | Format-Table -Auto
+$rows | Format-Table -Auto   # keep on-screen table unchanged
 
 $csvPath = Join-Path $env:USERPROFILE "Desktop\ssd_smart_summary.csv"
-$rows | Export-Csv -NoTypeInformation -Encoding UTF8 -Path $csvPath
+
+# --- One-time upgrade: if the existing CSV lacks DateRun, add it using the file's last write time ---
+if (Test-Path $csvPath) {
+  $hdr = (Get-Content -Path $csvPath -TotalCount 1)
+  if ($hdr -and $hdr -notmatch '(?i)\bDateRun\b') {
+    try {
+      $existing = Import-Csv -Path $csvPath
+      $stamp = (Get-Item $csvPath).LastWriteTime.ToString('o')
+      foreach ($r in $existing) {
+        if (-not $r.PSObject.Properties['DateRun']) {
+          $r | Add-Member -NotePropertyName DateRun -NotePropertyValue $stamp
+        }
+      }
+      # Preserve existing column order, but put DateRun first to match future exports
+      $cols = @('DateRun') + ($existing[0].PSObject.Properties.Name | Where-Object { $_ -ne 'DateRun' })
+      $existing | Select-Object $cols | Export-Csv -NoTypeInformation -Encoding UTF8 -Path $csvPath
+    } catch {
+      Write-Warning "Could not upgrade existing CSV to include DateRun: $_"
+    }
+  }
+}
+
+# --- Append the current run, with DateRun added but not shown in the on-screen table ---
+$exportRows = $rows | Select-Object @{Name='DateRun';Expression={$RunAt}}, *
+if (Test-Path $csvPath) {
+  $exportRows | Export-Csv -NoTypeInformation -Encoding UTF8 -Append -Path $csvPath
+} else {
+  $exportRows | Export-Csv -NoTypeInformation -Encoding UTF8 -Path $csvPath
+}
 "Saved: $csvPath"
