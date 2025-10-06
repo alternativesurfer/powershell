@@ -1,0 +1,11 @@
+boot in single-user mode
+
+#Enable trim
+fsck -y
+tunefs -t enable /
+
+#confirm enabled
+tunefs -p /
+
+#run trim on all existing data
+fsck_ffs -E /
