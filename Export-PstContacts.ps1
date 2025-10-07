@@ -1,4 +1,4 @@
-# to run: .\Export-PstContacts.ps1 -PstPath "C:\temp\PSTLOCATIONHERE.pst" -verbose
+# to run: .\Export-PstContacts.ps1 -PstPath "C:\temp\PSTLOCATIONHERE.pst" -aggressivescan -verbose
 
 param(
   [Parameter(Mandatory = $true)]
@@ -394,3 +394,4 @@ Write-Verbose ("Elapsed: {0:n1} seconds" -f $sw.Elapsed.TotalSeconds)
 if ($LogPath) {
   try { Stop-Transcript | Out-Null } catch {}
 }
+
