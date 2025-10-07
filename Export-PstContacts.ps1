@@ -1,3 +1,5 @@
+# to run: .\Export-PstContacts.ps1 -PstPath "C:\temp\PSTLOCATIONHERE.pst" -verbose
+
 param(
   [Parameter(Mandatory = $true)]
   [ValidateScript({ Test-Path $_ })]
