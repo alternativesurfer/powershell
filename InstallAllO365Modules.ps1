@@ -11,9 +11,10 @@ Install-Module -Name PartnerCenter -AllowClobber -Scope AllUsers -Force
 Install-Module -Name Microsoft.Graph.Intune -Scope AllUsers -Force -AllowClobber
 Install-Module -Name IntuneBackupAndRestore -Scope AllUsers -Force -AllowClobber
 install-module RunAsUser -Scope AllUsers -Force -AllowClobber
+Install-Module -Name UniversalPrintManagement -Scope AllUsers -Force -AllowClobber
 
 ### Graph and Graph BETA must both be installed, in this order
-Install-Module Microsoft.Graph -Scope AllUsers -Force
+Install-Module Microsoft.Graph -Scope AllUsers -Force -allowclobber
 Install-Module Microsoft.Graph.Beta -Scope AllUsers -Force -AllowClobber
 
 
@@ -24,6 +25,7 @@ Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -force -allow
 Install-Module -Name Microsoft.PowerApps.PowerShell -force -AllowClobber
 Install-Module -Name Microsoft.Graph.Entra -Repository PSGallery -Scope CurrentUser -AllowPrerelease -Force -allowclobber
 Install-Module PnP.PowerShell -Scope CurrentUser -force -allowclobber
+
 
 
 ##### Import
@@ -45,4 +47,5 @@ Import-Module -Name Microsoft.PowerApps.Administration.PowerShell
 Import-Module -Name Microsoft.PowerApps.PowerShell
 Import-Module -name Microsoft.Graph.Entra
 import-module -name pnp.powershell
+Import-Module -Name UniversalPrintManagement
 
