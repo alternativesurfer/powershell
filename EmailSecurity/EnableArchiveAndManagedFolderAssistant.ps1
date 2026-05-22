@@ -27,3 +27,10 @@ foreach ($MailboxUser in $MailboxUsers)
 
 Disconnect-ExchangeOnline -Confirm:$false
 Remove-PSSession *
+
+
+# Check Mailbox Size
+# Mailbox
+Get-MailboxStatistics -Identity "alexw@contoso.com" | Select DisplayName, TotalItemSize, ItemCount
+#Archive
+Get-MailboxStatistics -Identity "alexw@contoso.com" -Archive | Select DisplayName, TotalItemSize, ItemCount
